@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Webcam to Server</title>
+</head>
+<body>
+
+ <!---
+<input type="button" value="Take Picture" onclick="takePicture()">
+--->
+<input type="button" value="Take Picture">
+<canvas id="canvas" width="640" height="480"></canvas>
+
+<script>
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+
+// Get the webcam stream
+const video = document.querySelector("video");
+video.srcObject = navigator.mediaDevices.getUserMedia({
+  video: true,
+});
+
+// Start drawing the webcam stream to the canvas
+video.onended = () => {
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  ctx.drawImage(video, 0, 0);
+};
+
+// Upload the image to the server
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
+  // Get the image data from the canvas
+  const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  // Create a new XMLHttpRequest object
+  const xhr = new XMLHttpRequest();
+
+  // Set the request method to POST
+  xhr.open("POST", "/upload");
+
+  // Set the request body to the image data
+  xhr.send(imgData);
+
+  // Handle the response
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      console.log("Image uploaded successfully!");
+    } else {
+      console.log("Image upload failed!");
+    }
+  };
+});
+
+</script>
+
+
+<script>
+function takePicture() {
+ // Get the canvas element
+ var canvas = document.getElementById("canvas");
+
+ // Get the 2D context
+ var ctx = canvas.getContext("2d");
+
+ // Get the image from the webcam
+ var video = document.querySelector("video");
+
+ // Check if the webcam is available
+ if (video) {
+// Start the webcam
+ //video.start();
+
+ // Draw the image from the webcam to the canvas
+ ctx.drawImage(video, 0, 0);
+
+ // Serialize the canvas to a base64 string
+ var base64Image = canvas.toDataURL("image/png");
+
+ // Send the base64 image to the server
+ var xhr = new XMLHttpRequest();
+ xhr.open("POST", "/upload", true);
+ xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+ xhr.send("image=" + base64Image);
+ }
+     
+}
+</script>
+
+<video id="video" width="640" height="480" autoplay></video>
+
+</body>
+</html>

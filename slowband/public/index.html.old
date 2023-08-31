@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Webcam to Server</title>
+</head>
+<body>
+
+<input type="button" value="Take Picture" onclick="takePicture()">
+
+<canvas id="canvas" width="640" height="480"></canvas>
+
+
+
+
+<script>
+function takePicture() {
+ // Get the canvas element
+ var canvas = document.getElementById("canvas");
+
+ // Get the 2D context
+ var ctx = canvas.getContext("2d");
+
+ // Get the image from the webcam
+ var video = document.querySelector("video");
+
+ // Check if the webcam is available
+ if (video) {
+// Start the webcam
+ //video.start();
+
+ // Draw the image from the webcam to the canvas
+ ctx.drawImage(video, 0, 0);
+
+ // Serialize the canvas to a base64 string
+ var base64Image = canvas.toDataURL("image/png");
+
+ // Send the base64 image to the server
+ var xhr = new XMLHttpRequest();
+ xhr.open("POST", "/upload", true);
+ xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+ xhr.send("image=" + base64Image);
+ }
+}
+</script>
+
+<video id="video" width="640" height="480" autoplay></video>
+
+</body>
+</html>

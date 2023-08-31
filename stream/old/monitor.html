@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <script src="https://meet.cyon.tools/external_api.js"></script>
+  <script src="../defaults.js"></script>
+
+</head>
+
+<body id="meet" style="border:0;margin:0">
+
+
+
+  <script>
+    Object.defineProperty(window.navigator, 'userAgent', {
+      get: function () { return 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/80.0.3987.163 Chrome/80.0.3987.163 Safari/537.36'; }
+    });
+
+    var domain = "meet.cyon.tools";
+    var options = {
+      roomName: "desaster",
+      //width: 700,
+      //height: 500,
+      parentNode: document.querySelector('#meet'),
+      userInfo: {
+        //email: 'email@jitsiexamplemail.com',
+        displayName: ''
+      },
+      configOverwrite: {
+          prejoinPageEnabled: false,
+          startWithAudioMuted: false,
+          startWithVideoMuted: false,
+          welcomePage: {
+            // Whether to disable welcome page. In case it's disabled a random room
+            // will be joined when no room is specified.
+            disabled: true
+            // If set,landing page will redirect to this URL.
+            // customUrl: ''
+          },
+          defaultLocalDisplayName: '',
+          defaultRemoteDisplayName: '',
+	  readOnlyName: true,
+          requireDisplayName: false,
+	  p2p: {
+            enabled: true
+          }
+      },
+      interfaceConfigOverwrite: {
+        filmStripOnly: true
+      }
+    }
+  </script>
+
+  <script>
+    var mute = true;
+    var displayName = 'eins';
+    var roomName = 'uhu';
+   
+    options.userInfo.displayName = displayName;
+    options.configOverwrite.defaultLocalDisplayName = displayName;
+    options.configOverwrite.defaultRemoteDisplayName = displayName;
+    options.roomName = roomName;
+    options.configOverwrite.startWithAudioMuted = mute;
+    options.configOverwrite.startWithVideoMuted = mute;
+  
+    var api = new JitsiMeetExternalAPI(domain, options);
+  </script>
+</body>
+
+</html>

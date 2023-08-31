@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+</head">
+
+<body style="margin:0;background-color:black;color:white;font-family: 'Courier New', monospace;">
+<img style="width:100%" src="bilder/Art-000.png">
+
+
+<table>
+<tr  ><td>
+
+ <table>
+  <tr>
+    <td>Conception</td>
+    <td>:</td>
+    <td>Enrique Fontanilles</td>
+  </tr>
+  <tr>
+    <td>Images</td>
+    <td>:</td>
+    <td>Personnes engagés de la région</td>
+  </tr>
+  <tr>
+    <td>Commissaire</td>
+    <td>:</td>
+    <td>Markus Buser</td>
+  </tr>
+  <tr>
+    <td>Informatique</td>
+    <td>:</td>
+    <td>Basil Stotz</td>
+  </tr>
+  <tr>
+    <td>Documentation</td>
+    <td>:</td>
+    <td>Hasna Ouali et Bouchra Binckli</td>
+  </tr>
+</table> 
+
+</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align:top">
+
+ <table>
+  <tr>
+    <td>Lcoacation</td>
+    <td>:</td>
+    <td>Motoco Mulhouse</td>
+  </tr>
+  <tr>
+    <td>Dates</td>
+    <td>:</td>
+    <td>22. Septembre 2023 - 24. Septembre 2023</td>
+  </tr>
+</table> 
+
+</td>
+</tr>
+</table
+
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<html lang="de" style="height:100%">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <script src="https://meet.cyon.tools/external_api.js"></script>
+</head>
+
+<body id="meet" style="margin:0px;min-height:100%">
+
+  <script src="../defaults.js"></script>
+
+  <script>
+    var mute = true;
+    var displayName = 'desaster';
+    var roomName = 'desaster';
+
+    const urlParams = new URLSearchParams(location.search);
+    for (const [key, value] of urlParams) {
+        //console.log(`${key}:${value}`);
+        switch(key){
+           case 'mute':
+		mute = value;
+                break;
+           case 'displayName':
+		displayName = value;
+                break;
+           case 'roomName':
+		roomName = value;
+                break;
+           default:
+		break;
+         }
+    }
+  </script>
+
+  <script src="options.js"></script>
+  <!---
+    displayName = '001';
+    roomName = '67fe186a3f18a7f8bda044da637726f0';
+  --->
+
+
+  <script>
+    options.userInfo.displayName = displayName;
+    options.configOverwrite.defaultLocalDisplayName = displayName;
+    options.configOverwrite.defaultRemoteDisplayName = displayName;
+    options.roomName = roomName;
+    options.configOverwrite.startWithAudioMuted = mute;
+    options.configOverwrite.startWithVideoMuted = mute;
+ 
+    var api = new JitsiMeetExternalAPI(domain, options);
+  </script>
+
+</body>
+
+</html>
