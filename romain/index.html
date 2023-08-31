@@ -27,13 +27,14 @@
 	    //console.log(`${key}:${value}`);
 	    switch(key){
 	    case 'startIndex':
-		startIndex=value%imgArray.length;
+		curIndex=value%imgArray.length;
 		break;
 	    case 'imgDuration':
 		imgDuration=value*1000;
 		break;
 	    default:
 		break;
+	    }
 	}
 
         function slideShow() {
