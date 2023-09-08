@@ -3,9 +3,19 @@
 prefix="./slides"
 
 names="apfel birne citrone dattel emmer feige gerste hirse idared kirsche limone"
+
 mkdir -p $prefix
 
-cp index.html $prefix/.
+cat <<EOF > $prefix/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desastre</title>
+</head>
+<body>
+</body>
+</html>
+EOF
 
 for n in $names; do
     test -d $prefix/$n && rm -r $prefix/$n
