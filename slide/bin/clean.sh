@@ -1,9 +1,9 @@
 #!/bin/sh
 
 
-pwd
 
-prefix="./slides"
+
+prefix="./dist"
 
 test -d $prefix && rm -r $prefix
 

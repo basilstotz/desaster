@@ -1,9 +1,9 @@
 #!/bin/sh
 
-prefix="./slides"
+prefix="./dist"
 
 names="apfel birne citrone dattel emmer feige gerste hirse idared kirsche limone"
-
+test -d $prefix && rm -r $prefix
 mkdir -p $prefix
 
 cat <<EOF > $prefix/index.html

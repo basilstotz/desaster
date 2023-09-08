@@ -1,9 +1,9 @@
-update:
-	./bin/update.sh
+build:
+	./bin/build.sh
 
 clean:
 	./bin/clean.sh
 
-upload:
+upload: build
 	./bin/upload.sh
 

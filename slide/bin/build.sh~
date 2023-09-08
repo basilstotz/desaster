@@ -1,8 +1,21 @@
 #!/bin/sh
 
-prefix="./slides"
+prefix="./dist"
 
 names="apfel birne citrone dattel emmer feige gerste hirse idared kirsche limone"
+
+mkdir -p $prefix
+
+cat <<EOF > $prefix/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desastre</title>
+</head>
+<body>
+</body>
+</html>
+EOF
 
 for n in $names; do
     test -d $prefix/$n && rm -r $prefix/$n
@@ -19,8 +32,8 @@ cat <<EOF > $prefix/dashboard.html
 EOF
 
 for n in $names; do
-  mkdir -p $n
-  cp template/* $n
+  mkdir -p $prefix/$n
+  cp template/* $prefix/$n
   qrencode -lH -s5 -o $prefix/$n/qrcode.png "https://desaster.arglos.ch/slides/$n/index.html"
 
   cat <<EOF > $prefix/$n/index.html
