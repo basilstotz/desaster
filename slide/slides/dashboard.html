@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desastre</title>
+</head>
+<body>
+<h1>Desaster Dashboard</h1>
+<div><a href="apfel/index.html">apfel</a><br/><img id="apfel" src="apfel/slide.jpg" width="25%"></div>
+<div><a href="birne/index.html">birne</a><br/><img id="birne" src="birne/slide.jpg" width="25%"></div>
+<div><a href="citrone/index.html">citrone</a><br/><img id="citrone" src="citrone/slide.jpg" width="25%"></div>
+<div><a href="dattel/index.html">dattel</a><br/><img id="dattel" src="dattel/slide.jpg" width="25%"></div>
+<div><a href="emmer/index.html">emmer</a><br/><img id="emmer" src="emmer/slide.jpg" width="25%"></div>
+<div><a href="feige/index.html">feige</a><br/><img id="feige" src="feige/slide.jpg" width="25%"></div>
+<div><a href="gerste/index.html">gerste</a><br/><img id="gerste" src="gerste/slide.jpg" width="25%"></div>
+<div><a href="hirse/index.html">hirse</a><br/><img id="hirse" src="hirse/slide.jpg" width="25%"></div>
+<div><a href="idared/index.html">idared</a><br/><img id="idared" src="idared/slide.jpg" width="25%"></div>
+<div><a href="kirsche/index.html">kirsche</a><br/><img id="kirsche" src="kirsche/slide.jpg" width="25%"></div>
+<div><a href="limone/index.html">limone</a><br/><img id="limone" src="limone/slide.jpg" width="25%"></div>
+<script>
+function updateSlide(id){document.getElementById(id).src = id+'/slide.jpg?r='+Math.random()}
+
+function update(){
+   updateSlide("apfel");
+   updateSlide("birne");
+   updateSlide("citrone");
+   updateSlide("dattel");
+   updateSlide("emmer");
+   updateSlide("feige");
+   updateSlide("gerste");
+   updateSlide("hirse");
+   updateSlide("idared");
+   updateSlide("kirsche");
+   updateSlide("limone");
+}
+setInterval(update, 5000);
+</script>
+</body>
+</html>

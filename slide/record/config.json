@@ -1,0 +1,13 @@
+{
+    "imgDuration": 5000,
+    "webcam": {
+          "width": 350,
+          "height": 287,
+          "dest_width": 1024,
+          "dest_height": 768,
+          "image_format": "jpeg",
+          "jpeg_quality": 90,
+          "constraints": { "facingMod": "environment" }
+    }
+}
+
