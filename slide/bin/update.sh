@@ -1,9 +1,14 @@
 #!/bin/sh
 
+prefix="./slides"
 
 names="apfel birne citrone dattel emmer feige gerste hirse idared kirsche limone"
 
-cat <<EOF > dashboard.html
+for n in $names; do
+    test -d $prefix/$n && rm -r $prefix/$n
+done
+
+cat <<EOF > $prefix/dashboard.html
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +19,11 @@ cat <<EOF > dashboard.html
 EOF
 
 for n in $names; do
-  mkdir -p $n
-  cp template/* $n
-  qrencode -lH -s5 -o $n/qrcode.png "https://desaster.arglos.ch/slides/$n/index.html"
+  mkdir -p $prefix/$n
+  cp template/* $prefix/$n
+  qrencode -lH -s5 -o $prefix/$n/qrcode.png "https://desaster.arglos.ch/slides/$n/index.html"
 
-  cat <<EOF > $n/index.html
+  cat <<EOF > $prefix/$n/index.html
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,10 +39,10 @@ for n in $names; do
 </html>
 EOF
   
-  echo "<div><a href=\"$n/index.html\">$n</a><br/><img id=\"$n\" src=\"$n/slide.jpg\" width=\"25%\"></div>" >> dashboard.html
+  echo "<div><a href=\"$n/index.html\">$n</a><br/><img id=\"$n\" src=\"$n/slide.jpg\" width=\"25%\"></div>" >> $prefix/dashboard.html
 done
 
-cat <<EOF >> dashboard.html
+cat <<EOF >> $prefix/dashboard.html
 <script>
 function updateSlide(id){document.getElementById(id).src = id+'/slide.jpg?r='+Math.random()}
 
@@ -45,11 +50,11 @@ function update(){
 EOF
 
 for n in $names; do
-    echo "   updateSlide(\"$n\");" >> dashboard.html
+    echo "   updateSlide(\"$n\");" >> $prefix/dashboard.html
 done
 
 
-cat <<EOF >> dashboard.html
+cat <<EOF >> $prefix/dashboard.html
 }
 setInterval(update, 5000);
 </script>
