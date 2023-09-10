@@ -35,6 +35,9 @@ cat <<EOF > $prefix/dashboard.html
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width" />
+        <style>
+           .slide { display:inline }
+        </style>
 </head>
 <body>
 <h1>Desaster Dashboard</h1>
@@ -43,8 +46,11 @@ EOF
 for n in $names; do
   mkdir -p $prefix/$n
   cp template/* $prefix/$n
-  qrencode -lH -s5 -o $prefix/$n/qrcode.png "https://desaster.arglos.ch/slides/$n/index.html"
-
+  if ! test -f ./qrcode/$n.png; then
+      qrencode -lH -s5 -o ./qrcode/$n.png "https://desaster.arglos.ch/slides/$n/index.html"
+  fi
+  cp ./qrcode/$n.png $prefix/$n/qrcode.png
+  
   cat <<EOF > $prefix/$n/index.html
 <!DOCTYPE html>
 <html>
@@ -60,7 +66,7 @@ for n in $names; do
   <h1>Desaster $n</h1>
   <p>Scanne diesen QR-Code mit den Handy, um diese Seite mit dem Handy zu öffnen:<p>
   <img src="qrcode.png"><br/>
-  <p>(Alternatif kannst du diese URL auf dem Handy auch händisch eingeben)</p> 
+  <p>(Alternatif kannst du diese URL <em>https://desaster.arglos.ch/slides/$n/index.html</em> auch händisch auf den Handy eingeben)</p> 
   <h3>Aufnehmen</h3>
   <p>Öffne diesen Link um die Aufnahme zu starten: <a href="capture.html">Capture</a>.</p><p>(Achtung: Du solltest dies nur einmal aktiv haben, sonst gibt ein (harmloses) Durcheinander.<p/>
   <h3>Ansehen</h3>
@@ -69,7 +75,7 @@ for n in $names; do
 </html>
 EOF
   
-  echo "<div><a href=\"$n/index.html\">$n</a><br/><img id=\"$n\" src=\"$n/slide.jpg\" width=\"25%\"></div>" >> $prefix/dashboard.html
+  echo "<div class=\"slide\" ><a href=\"$n/index.html\">$n</a><br/><img id=\"$n\" src=\"$n/slide.jpg\" width=\"25%\"></div>" >> $prefix/dashboard.html
 done
 
 cat <<EOF >> $prefix/dashboard.html
