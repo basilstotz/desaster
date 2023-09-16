@@ -49,8 +49,10 @@
 	 Webcam.set({
 	  width: 350,
 	  height: 287,
-	  dest_width: 1024,
-	  dest_height: 768,
+	  //dest_width: 1024,
+	  //dest_height: 768,
+	  dest_width: 512,
+	  dest_height: 384,
 	  image_format: 'jpeg',
 	  jpeg_quality: 90,
           constraints: { facingMode: 'environment' }
@@ -96,7 +98,7 @@
         }
         
         
-	setInterval(snap,5000);
+	setInterval(snap,1000);
 
 </script>
 </html>

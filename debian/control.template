@@ -1,0 +1,12 @@
+Source: desaster
+Section: unknown
+Priority: extra
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.2
+Package: desaster
+Architecture: all
+Version: %%version%% 
+Depends: chromium,unclutter,epoptes-client
+Description: Desaster
+ Desaster

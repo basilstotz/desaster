@@ -92,7 +92,7 @@ done
 
 cat <<EOF >> $prefix/dashboard.html
 }
-setInterval(update, 5000);
+setInterval(update, 1000);
 </script>
 </body>
 </html>

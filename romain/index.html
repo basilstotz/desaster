@@ -40,9 +40,10 @@
         function slideShow() {
             document.getElementById('image1').src = imgArray[curIndex];
             curIndex++;
-            if (curIndex == imgArray.length) { curIndex = 0; }
+            if (curIndex >= imgArray.length) { curIndex = 0; }
             setTimeout("slideShow()", imgDuration);
         }
+      
         slideShow();
     </script>
 </body>
