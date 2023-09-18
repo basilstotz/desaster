@@ -20,28 +20,20 @@ set -e
 
 case "$1" in
     configure)
-	systemctl enable unstet-daemon.service
-	systemctl disable unstet-replay.service
-	
-	CONFIG="/opt/unstet/public/config.json"
-	if ! test -f $CONFIG; then
-	    cat <<EOF > $CONFIG
-{
-    "screen": {
-        "width": 1280,
-        "height": 700
-    },
-    "buttons": false
-}
-EOF
-        	    
-	fi
-	chmod a+rw $CONFIG
-
 	# switch of screensaver (on pi only)
 	if test -f /etc/xdg/lxsession/LXDE-pi/autostart; then
-	    sed -e "s/\(^@xscreensaver.*$\)/#\1/g" -i /etc/xdg/lxsession/LXDE-pi/autostart
+	    if ! test -f /etc/xdg/lxsession/LXDE-pi/autostart.ori; then
+		cp /etc/xdg/lxsession/LXDE-pi/autostart /etc/xdg/lxsession/LXDE-pi/autostart.ori
+	    fi	    
+	    sed -e "s/\(^@xscreensaver.*$\)/#\1/g"  /etc/xdg/lxsession/LXDE-pi/autostart.ori > /etc/xdg/lxsession/LXDE-pi/autostart
 	fi
+
+
+	if ! test -f /etc/hosts.ori; then
+	    cp /etc/hosts /etc/hosts.ori
+	fi	    
+	echo "server       192.168.16.254" >> /etc/hosts
+
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

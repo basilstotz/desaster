@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Unstet-Replay
-Comment=Unstet-Replay
-Exec=unstet-replay
+Name=Desaster-Presenter
+Comment=Desaster Presenter
+Exec=desaster-presenter
 Terminal=false
 Type=Application
 Icon=unstet-player.png

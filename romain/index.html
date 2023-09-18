@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JavaScript Slideshow Demo</title>
+    <title>Slideshow</title>
 </head>
 
 <body style="background:black">
@@ -26,10 +26,10 @@
 	for (const [key, value] of urlParams) {
 	    //console.log(`${key}:${value}`);
 	    switch(key){
-	    case 'startIndex':
+	    case 'start':
 		curIndex=value%imgArray.length;
 		break;
-	    case 'imgDuration':
+	    case 'duration':
 		imgDuration=value*1000;
 		break;
 	    default:

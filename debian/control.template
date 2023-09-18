@@ -8,5 +8,5 @@ Package: desaster
 Architecture: all
 Version: %%version%% 
 Depends: chromium,unclutter,epoptes-client
-Description: Desaster
- Desaster
+Description: Setup for Desaster
+ Setup for Desaster
