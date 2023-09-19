@@ -3,10 +3,12 @@
 ## RaspberryPi konfigurieren
 
 - Von https://github.com/basilstotz/desaster/tree/main/debian das Paket **desaster_xxxxxxx_all.deb** installieren
+- desaster-setup-user-config rennen
+- in **~/bin/desaster-presenter** den "richtigen" link setzen
 - raspi-config: hostname einrichten
 - raspi-config: fan einrichten
 - evtl raspi-config: ssh einrichten
-- in **~/bin/desaster-presenter** den "richtigen" link setzen
+
 - sudo **epoptes-client** -c rennen
 
 Reboot und test, wenn ok:
