@@ -2,6 +2,12 @@
 
 ## RaspberryPi konfigurieren
 
+- https
+
+
+
+## Specials
+
 ### VNC einrichten
 https://www.elektronik-kompendium.de/sites/raspberry-pi/2011121.htm
 
