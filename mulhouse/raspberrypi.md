@@ -2,7 +2,19 @@
 
 ## RaspberryPi konfigurieren
 
-- https
+- Von https://github.com/basilstotz/desaster/tree/main/debian das Paket **desaster_xxxxxxx_all.deb** installieren
+- raspi-config: hostname einrichten
+- raspi-config: fan einrichten
+- evtl raspi-config: ssh einrichten
+- in **~/bin/desaster-presenter** den "richtigen" link setzen
+- sudo **epoptes-client** -c rennen
+
+Reboot und test, wenn ok:
+
+- raspi-config: read-only filesystem setzen
+
+ Reboot und testen
+
 
 
 
@@ -14,19 +26,6 @@ https://www.elektronik-kompendium.de/sites/raspberry-pi/2011121.htm
 ### Auflösung einstellen
 https://www.elektronik-kompendium.de/sites/raspberry-pi/2101201.htm
 
-### Player
-Make ```/usr/share/applications/desaster.desktop``` with this content
-
-```
-[Desktop Entry]
-Type=Application
-Name=Desaster
-Exec=chromium-browser --app=https://meet.cyon.tools/desaster --autoplay-policy=no-user-gesture-required --start-fullscreen
-StartupNotify=false
-```
-For autostart
-
-``` cp /usr/share/application/desater.desktop ~/.config/autostart/.```
 
 ### Hide Cursor
 
