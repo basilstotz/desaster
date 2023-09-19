@@ -7,6 +7,6 @@ Standards-Version: 3.9.2
 Package: desaster
 Architecture: all
 Version: %%version%% 
-Depends: chromium,unclutter,epoptes-client
+Depends: chromium,unclutter,epoptes-client,emacs-nox
 Description: Setup for Desaster
  Setup for Desaster
