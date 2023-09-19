@@ -4,7 +4,7 @@
     <title>Slideshow</title>
 </head>
 
-<body style="background:black">
+<body style="background:black;overflow:hidden">
     <div>
         <img id="image1" style="width:100%;height:100%" />
     </div>
@@ -19,7 +19,7 @@
         ];
       */
         var curIndex = 0;
-        var imgDuration = 5000;
+        var imgDuration = 1200000;
 
 	const urlParams = new URLSearchParams(location.search);
 
@@ -29,7 +29,8 @@
 	    case 'start':
 		curIndex=value%imgArray.length;
 		break;
-	    case 'duration':
+	    case 'time':
+		if(value<1)value=1;
 		imgDuration=value*1000;
 		break;
 	    default:

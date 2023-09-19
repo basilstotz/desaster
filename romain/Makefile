@@ -1,4 +1,6 @@
-all:
-	@bin/content.sh bilder > content.js
+upload: content
+	@bin/upload.sh 
 
+content:
+	@bin/content.sh bilder > content.js
 
