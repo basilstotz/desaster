@@ -32,7 +32,7 @@ case "$1" in
 	if ! test -f /etc/hosts.ori; then
 	    cp /etc/hosts /etc/hosts.ori
 	fi	    
-	echo "server       192.168.16.254" >> /etc/hosts
+	echo "192.168.16.254 server" >> /etc/hosts
 
     ;;
 
